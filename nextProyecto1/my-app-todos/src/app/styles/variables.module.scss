@@ -1,0 +1,114 @@
+$primaryColor: #1677ff;
+$secondaryColor: #d8d5f7fd;
+$margin: 200px;
+$sizeLetra: sans-serif;
+
+.items {
+  margin-left: $margin;
+  text-align: center;
+  font-size: 24px;
+  list-style: none;
+  justify-tracks: center;
+  width: 1800px;
+  color: white;
+}
+.title > h1 {
+  color: rgb(255, 255, 255);
+  margin-left: $margin + 88px;
+  margin-top: 4px;
+
+  margin-bottom: 10px;
+  text-align: start;
+  height: 20px;
+  width: 500px;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+}
+.title > h2 {
+  color: $primaryColor;
+  margin-left: $margin + 220px;
+  margin-top: 10px;
+  padding: 0;
+  height: 20px;
+  margin-bottom: 35px;
+  text-align: start;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.titleCompletado {
+  margin-bottom: 100px;
+}
+
+.button {
+  text-align: center;
+  padding: 5px;
+  justify-content: center;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-size: 24px;
+  border-radius: 10px;
+  border-color: #f8ececa6;
+  width: 200px;
+  height: 40px;
+  line-height: 0;
+}
+.button:hover {
+  background-color: $secondaryColor;
+  color: rgb(0, 0, 0);
+  border-color: #ffffffa6;
+}
+
+.buttonItem {
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+}
+.taskTodos {
+  height: 50px;
+  width: 100px;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  background-color: $primaryColor;
+  font-family: "Courier New", Courier, monospace;
+  // text-decoration: line-through;
+}
+.sidebarAnt > Button {
+  background-color: $primaryColor;
+}
+.sidebarAnt > Menu {
+  background-color: $secondaryColor;
+}
+.inputDate {
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  width: 1000px;
+  height: 0;
+}
+.inputDate > label {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  height: 50px;
+}
+.inputDate > Col {
+  height: 50px;
+}
+.inputDate > Button {
+  margin-left: 470px;
+  margin-top: 100px;
+}
+.tabla {
+  margin-top: 100px;
+  margin-left: 10px;
+}
+.customTimepicker :where(.ant-picker) .ant-picker-input > input {
+  font-size: 40px !important; /* Cambia el tamaño */
+  background-color: aqua;
+}
