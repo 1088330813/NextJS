@@ -21,7 +21,8 @@ export const TodoSearchDates = (props: Props) => {
     return data.filter((todo: { status: boolean; createdAt: string }) => {
       const todoDate = new Date(todo.createdAt);
       const start = startDate ? new Date(startDate) : null;
-      const end = endDate ? new Date(endDate).setDate(24) : null;
+      const end = endDate ? new Date(endDate) : null;
+      console.log('fecha inicial:',startDate,'fecha final:',endDate)
       return todo.status === true && todoDate >= start && todoDate <= end;
     });
   };
@@ -34,7 +35,21 @@ export const TodoSearchDates = (props: Props) => {
         const res = await fetch("/api/todos");
         const data = await res.json();
         const resultado = filtrarTareas(data, startDate, endDate);
-        props.setTareasCompletas(resultado);
+        // Esto se hace para ordenar la data
+        const resultadoOrdenado = resultado.sort(
+          function (a,b)
+          {
+            if(a.createdAt>b.createdAt)
+              {
+                return 1;
+              }
+              if(a.createdAt<b.createdAt)
+                {
+                  return -1;
+                }
+                return 0;
+              })
+        props.setTareasCompletas(resultadoOrdenado);
         console.log("este es el resultado", resultado);
       } catch (error) {
         console.error("Error al cargar los datos:", error);

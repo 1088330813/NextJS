@@ -8,6 +8,7 @@ interface Props {
     id: number;
     objectiveTime: Date;
   };
+  timeSaving:number;
   numTareasCompletas: number;
   tareasCompletas: {
     text: string;
@@ -15,6 +16,7 @@ interface Props {
     id: number;
     objectiveTime: Date;
   };
+  setTimeSaving:React.Dispatch<React.SetStateAction<number>>;
   setNumTareasCompletas: React.Dispatch<React.SetStateAction<number>>;
   key: number;
   setTareasCompletas: React.Dispatch<
@@ -56,10 +58,12 @@ export const TodoItem = (props: Props) => {
         throw new Error(`Error al actualizar el estado d el TODO con ID:${id}`);
       }
       const data = await response.json();
+      console.log("Revisa esta data",data.diferenceTime)
       //Este actualiza el array que muestra, sacando el que eliminamos
       props.setTodos((todos) => todos.filter((todo) => todo.id !== id));
-      console.log("Todo Actualizado en su estado", data);
+      console.log("Todo Actualizado en su estado", data.updatedTodo.diferenceTime);
       props.setNumTareasCompletas(props.numTareasCompletas + 1);
+      props.setTimeSaving((valorAnterior)=>valorAnterior+data.updatedTodo.diferenceTime)
     } catch (error) {
       console.error("Error al actualizar TODO:", error);
     }

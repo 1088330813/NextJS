@@ -45,15 +45,36 @@ export async function PATCH(req: Request) {
     const nuevaFecha = new Date();
     // Para modificar las horas
     const nuevaFechaModificada = nuevaFecha
-      ? //  ? new Date(nuevaFecha.setHours(15))
+    //  ? new Date(nuevaFecha.setHours(15))
+      ? 
         new Date(nuevaFecha)
       : null;
-    await prisma.todos.update({
+
+      const registroActual = await prisma.todos.findUnique({
+        where:{id},
+      });
+      if(!registroActual){
+        return NextResponse.json(
+          {error:"Registro no encontrado"},
+          {status:404}
+        );
+      }
+      const objectiveTime= new Date(registroActual.objectiveTime);
+
+      const diferenceTime=nuevaFechaModificada ? (objectiveTime.getTime()-nuevaFechaModificada.getTime())/60000:null;//divido por 60000 para poder sacar los minutos
+      //se podria usar math.abs, cuando necesitemos traer solo numeros positivos
+
+    const updatedTodo= await prisma.todos.update({
       where: { id },
-      data: { status: true, createdAt: nuevaFechaModificada },
+      data: { 
+        status: true, 
+        createdAt: nuevaFechaModificada, 
+        completeTime:nuevaFechaModificada,
+        diferenceTime:diferenceTime },
     });
     return NextResponse.json({
       message: "ESTADO actualizadco con exito!",
+      updatedTodo: updatedTodo
     });
   } catch (error) {
     console.error("error al actualizar el estado", error);
