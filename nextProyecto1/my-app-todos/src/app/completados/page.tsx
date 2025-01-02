@@ -7,7 +7,6 @@ import { TodoList } from "../../components/completados/TodoList";
 import { useState, useEffect } from "react";
 
 export default function Completados() {
-  const titulo: string = "Tareas Completadas HOY";
   const [numTareasCompletas, setNumTareasCompletas] = useState<number>(0);
   const [tareasCompletas, setTareasCompletas] = useState<
     Array<{ text: string; status: boolean; id: number; createdAt: Date }>
@@ -36,7 +35,7 @@ export default function Completados() {
 
   return (
     <>
-      <TodoTitle titulo={titulo} />
+    <TodoTitle/>
       <TodoList>
         {searchedTodos.map((todo, index) => (
           <TodoItem
@@ -44,7 +43,7 @@ export default function Completados() {
             todo={todo}
             index={index + 1}
             setNumTareasCompletas={setNumTareasCompletas}
-            setTareasCompletas={setTareasCompletas}
+            // setTareasCompletas={setTareasCompletas}
           />
         ))}
       </TodoList>

@@ -3,16 +3,16 @@ import variables from "@/app/styles/variables.module.scss";
 interface Props {
   numTareasCompletas: number;
   todo: { text: string; status: boolean; id: number; createdAt: Date };
-  todos: { text: string; status: boolean; id: number }[];
+  // todos: { text: string; status: boolean; id: number;createdAt: Date }[];
 
   setNumTareasCompletas: React.Dispatch<React.SetStateAction<number>>;
   index: number;
-  setTareasCompletas: React.Dispatch<
-    React.SetStateAction<{ text: string; status: boolean; id: number }[]>
-  >;
-  setTodos: React.Dispatch<
-    React.SetStateAction<{ text: string; status: boolean; id: number }[]>
-  >;
+  // setTareasCompletas: React.Dispatch<
+  //   React.SetStateAction<{ text: string; status: boolean; id: number }[]>
+  // >;
+  // setTodos: React.Dispatch<
+  //   React.SetStateAction<{ text: string; status: boolean; id: number;createdAt: Date }[]>
+  // >;
 }
 const valorSpan: number = 8;
 import { Col, Row } from "antd";
