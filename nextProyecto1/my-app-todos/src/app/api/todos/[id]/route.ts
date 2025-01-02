@@ -74,7 +74,7 @@ export async function PATCH(req: Request) {
       where: { id },
       data: { 
         status: true, 
-        createdAt: nuevaFechaModificada, 
+        // createdAt: nuevaFechaModificada, 
         completeTime:nuevaFechaModificada,
         diferenceTime:diferenceTime },
     });
