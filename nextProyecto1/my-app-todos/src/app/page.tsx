@@ -74,9 +74,9 @@ export default function Home() {
               objectiveTime: new Date(todo.objectiveTime),
             })
           );
-        const tareasCompletas = data.filter(
-          (todo: { status: boolean }) => todo.status === true && todo
-        );
+        // const tareasCompletas = data.filter(
+        //   (todo: { status: boolean }) => todo.status === true && todo
+        // );
         setTodos(tareasPorCompletar);
       });
   }, []);

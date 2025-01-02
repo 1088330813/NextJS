@@ -2,11 +2,19 @@ import variables from "@/app/styles/variables.module.scss";
 import { DatePicker } from "antd";
 import { useState, useEffect } from "react";
 
+interface Todo {
+  text:string;
+  status:boolean;
+  id:number;
+  createdAt:string;
+}
+
 interface Props {
   setTareasCompletas: React.Dispatch<
     React.SetStateAction<{ text: string; status: boolean; id: number }[]>
   >;
-  tareasCompletas: { text: string; status: boolean; id: number }[];
+  // asi lo usaba antes sin la interfaz: tareasCompletas: { text: string; status: boolean; id: number }[];
+  tareasCompletas:Todo[];
 }
 
 export const TodoSearchDates = (props: Props) => {
@@ -14,7 +22,7 @@ export const TodoSearchDates = (props: Props) => {
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   const filtrarTareas = (
-    data: any[],
+    data: Todo[],
     startDate: Date | null,
     endDate: Date | null
   ) => {
