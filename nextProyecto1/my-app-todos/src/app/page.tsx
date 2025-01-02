@@ -8,12 +8,17 @@ import { TodoSave } from "../components/home/TodoSave";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+  interface Todo {
+    status: boolean;
+    diferenceTime: number | null;
+    date: Date;
+  }
   const [timeSaving,setTimeSaving] =useState<number>(0)
   const [searchValue, setSearchValue] = useState<string>("");
   const [numTareasCompletas, setNumTareasCompletas] = useState<number>(0);
-  const [tareasCompletas, setTareasCompletas] = useState<
-    Array<{ text: string; status: boolean; id: number }>
-  >([]);
+  // const [tareasCompletas,setTareasCompletas] = useState<
+  //   Array<{ text: string; status: boolean; id: number }>
+  // >([]);
   const [todos, setTodos] = useState<
     Array<{ text: string; status: boolean; id: number; objectiveTime: Date ;completeTime:Date}>
   >([]);
@@ -44,7 +49,7 @@ export default function Home() {
               todoDate.getTime() === today.getTime()
             );
           })
-          .reduce((acc, todo) => acc + (todo.diferenceTime || 0), 0);
+          .reduce((acc:number, todo:Todo) => acc + (todo.diferenceTime || 0), 0);
           
         console.log('estos son los minutos ahorrados:',minutosAhorrados)
         setTimeSaving(minutosAhorrados);
@@ -95,13 +100,13 @@ export default function Home() {
           <TodoItem
            setTimeSaving={setTimeSaving}
             numTareasCompletas={numTareasCompletas}   
-            tareasCompletas={tareasCompletas}
+            // tareasCompletas={tareasCompletas}
             key={index}
             infoCompleta={todo}
             setTodos={setTodos}
             todos={todos}
             setNumTareasCompletas={setNumTareasCompletas}
-            setTareasCompletas={setTareasCompletas}
+            // setTareasCompletas={setTareasCompletas}
           />
         ))}
       </TodoList>

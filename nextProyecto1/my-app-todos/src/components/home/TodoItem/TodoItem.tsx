@@ -10,22 +10,22 @@ interface Props {
   };
   timeSaving:number;
   numTareasCompletas: number;
-  tareasCompletas: {
-    text: string;
-    status: boolean;
-    id: number;
-    objectiveTime: Date;
-  };
+  // tareasCompletas: {
+  //   text: string;
+  //   status: boolean;
+  //   id: number;
+  // };
   setTimeSaving:React.Dispatch<React.SetStateAction<number>>;
   setNumTareasCompletas: React.Dispatch<React.SetStateAction<number>>;
   key: number;
-  setTareasCompletas: React.Dispatch<
-    React.SetStateAction<{ text: string; status: boolean; id: number }[]>
-  >;
+  // setTareasCompletas: React.Dispatch<
+  //   React.SetStateAction<{ text: string; status: boolean; id: number }[]>
+  // >;
   setTodos: React.Dispatch<
-    React.SetStateAction<{ text: string; status: boolean; id: number }[]>
+    React.SetStateAction<{ text: string; status: boolean; id: number;completeTime:Date;objectiveTime: Date }[]>
   >;
-  todos: { text: string; status: boolean; id: number }[];
+  
+  todos: { text: string; status: boolean; id: number;completeTime:Date;objectiveTime: Date }[];
   todo: { text: string; status: boolean; id: number; objectiveTime: Date };
 }
 const valorSpan: number = 8;

@@ -13,6 +13,7 @@ interface Props {
         status: boolean;
         id: number;
         objectiveTime: Date;
+        completeTime:Date;
       }[]
     >
   >;
