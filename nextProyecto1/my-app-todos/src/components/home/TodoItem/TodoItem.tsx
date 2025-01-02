@@ -8,7 +8,7 @@ interface Props {
     id: number;
     objectiveTime: Date;
   };
-  timeSaving:number;
+  timeSaving?:number;
   numTareasCompletas: number;
   // tareasCompletas: {
   //   text: string;
@@ -26,7 +26,7 @@ interface Props {
   >;
   
   todos: { text: string; status: boolean; id: number;completeTime:Date;objectiveTime: Date }[];
-  todo: { text: string; status: boolean; id: number; objectiveTime: Date };
+  // todo?: { text: string; status: boolean; id: number; objectiveTime: Date };
 }
 const valorSpan: number = 8;
 import { Button, Col, Row } from "antd";
