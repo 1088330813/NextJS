@@ -1,19 +1,20 @@
 import variables from "@/app/styles/variables.module.scss";
-import { ReactNode } from "react";
+// import { ReactNode } from "react";
 
-interface Props {
-  numTareasCompletas: number;
-  totalTodos: number;
-  children?: ReactNode;
-  titulo: string;
-}
+// interface Props {
+//   numTareasCompletas: number;
+//   totalTodos: number;
+//   children?: ReactNode;
+//   titulo: string;
+// }
 
-export const TodoTitle = (props: Props) => {
+export const TodoTitle = () => {
+  const titulo: string = "Consulta Tareas x Fecha";
   return (
     <>
       {" "}
       <div className={variables.title}>
-        <h1>{props.titulo}</h1>
+        <h1>{titulo}</h1>
       </div>
     </>
   );

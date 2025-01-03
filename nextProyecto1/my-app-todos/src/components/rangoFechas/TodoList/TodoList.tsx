@@ -1,10 +1,12 @@
-import { Table,ColumnsType } from "antd";
+import { Table} from "antd";
+import { ColumnsType } from 'antd/es/table';
 import variables from "@/app/styles/variables.module.scss";
 
 interface Todo {
   key: number;
   Texto: string;
-  Fecha: Date;
+  Fecha: string;
+  Hora: string;
 }
 
 interface Props {

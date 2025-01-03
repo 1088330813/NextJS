@@ -8,13 +8,13 @@ import { useState } from "react";
 
 export default function RangoFechas() {
   const [tareasCompletas, setTareasCompletas] = useState<
-    Array<{ text: string; status: boolean; id: number }>
+    Array<{ text: string; status: boolean; id: number;createdAt:Date }>
   >([]);
-  const titulo: string = "Consulta Tareas x Fecha";
+  
 
   return (
     <>
-      <TodoTitle titulo={titulo} />
+      <TodoTitle/>
       <TodoSearchDates
         setTareasCompletas={setTareasCompletas}
         tareasCompletas={tareasCompletas}

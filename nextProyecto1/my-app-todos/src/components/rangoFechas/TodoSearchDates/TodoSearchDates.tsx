@@ -6,12 +6,12 @@ interface Todo {
   text:string;
   status:boolean;
   id:number;
-  createdAt:string;
+  createdAt:Date;
 }
 
 interface Props {
   setTareasCompletas: React.Dispatch<
-    React.SetStateAction<{ text: string; status: boolean; id: number }[]>
+    React.SetStateAction<Todo[]>
   >;
   // asi lo usaba antes sin la interfaz: tareasCompletas: { text: string; status: boolean; id: number }[];
   tareasCompletas:Todo[];
@@ -26,10 +26,10 @@ export const TodoSearchDates = (props: Props) => {
     startDate: Date | null,
     endDate: Date | null
   ) => {
-    return data.filter((todo: { status: boolean; createdAt: string }) => {
+    return data.filter((todo: { status: boolean; createdAt: Date }) => {
       const todoDate = new Date(todo.createdAt);
-      const start = startDate ? new Date(startDate) : null;
-      const end = endDate ? new Date(endDate) : null;
+      const start = startDate ? new Date(startDate) : new Date();
+      const end = endDate ? new Date(endDate) : new Date();
       console.log('fecha inicial:',startDate,'fecha final:',endDate)
       return todo.status === true && todoDate >= start && todoDate <= end;
     });
