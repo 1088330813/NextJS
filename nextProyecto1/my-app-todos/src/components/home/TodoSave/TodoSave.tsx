@@ -30,12 +30,11 @@ export const TodoSave = (props: Props) => {
   const [horaParaEjecucion, setHoraParaEjecucion] = useState<Date>(new Date());
 
   // Método POST para guardar los nuevos datos
-  const sendTodoToApi = async () => {
-    const newTodo = {
-      text: valueSave,
-      status: false,
-      objectiveTime: horaParaEjecucion,
-    };
+  const sendTodoToApi = async (newTodo:{
+      text: string,
+      status: boolean,
+      objectiveTime: Date,
+  }) => {
     try {
       const response = await fetch("/api/todos", {
         method: "POST",
